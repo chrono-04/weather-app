@@ -1,6 +1,14 @@
-import { getWeather } from "./weatherApi.js";
+import { renderInterface } from "./render.js";
 
 const findBtn = document.querySelector(".find-btn");
+const weatherContainer = document.querySelector(".weather-container");
+
+while (!weatherContainer.firstChild) {
+  const h1 = document.createElement("h1");
+  h1.textContent = "Search Cities to check weather";
+  h1.style.color = "ghostwhite";
+  weatherContainer.appendChild(h1);
+}
 
 findBtn.addEventListener("click", () => {
   let cityInput = document.querySelector(".city-input");
@@ -10,5 +18,5 @@ findBtn.addEventListener("click", () => {
     return;
   }
 
-  getWeather();
+  renderInterface();
 });

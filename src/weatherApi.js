@@ -2,6 +2,7 @@ import { getGeoLocation } from "./geocodingApi.js";
 
 async function getWeather() {
   const location = await getGeoLocation();
+  const countryName = location.name;
   const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
   const API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&appid=${WEATHER_API_KEY}`;
   try {
@@ -15,14 +16,14 @@ async function getWeather() {
     console.log(data);
     const celsius = data.main.temp - 273.15;
     console.log(`Country: ${data.sys.country}`);
-    console.log(`City: ${location.name}`);
+    console.log(`City: ${countryName}`);
     console.log(`Temp: ${celsius.toFixed(2)}°C`);
+    return data;
   } catch (error) {
     console.error(`Something went wrong ${error}`);
   }
 
   const input = document.querySelector(".city-input");
-  input.value = "";
 }
 
 export { getWeather };
