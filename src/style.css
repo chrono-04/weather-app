@@ -1,16 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --main-color: #282a31;
 }
 
 * {
@@ -32,4 +21,31 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--main-color);
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.input-field {
+  margin-top: 20px;
+}
+
+.city-input {
+  padding: 10px 5px;
+  border-radius: 8px;
+}
+
+.find-btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
 }
