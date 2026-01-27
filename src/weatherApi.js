@@ -20,6 +20,9 @@ async function getWeather() {
   } catch (error) {
     console.error(`Something went wrong ${error}`);
   }
+
+  const input = document.querySelector(".city-input");
+  input.value = "";
 }
 
 export { getWeather };
