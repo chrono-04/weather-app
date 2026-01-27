@@ -11,8 +11,12 @@ async function getGeoLocation() {
 
     const data = await response.json();
     console.log(data);
+    if (data.length > 0) {
+      const { lat, lon, name } = data[0];
+      return { lat: lat, lon: lon, name: name };
+    }
   } catch (error) {
-    console.error(`Something went wrong ${error}`);
+    console.error("Something went wrong", error);
   }
 }
 

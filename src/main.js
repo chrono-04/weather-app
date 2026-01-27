@@ -1,5 +1,5 @@
-import { getGeoLocation } from "./geocodingApi.js";
+import { getWeather } from "./weatherApi.js";
 
 const findBtn = document.querySelector(".find-btn");
 
-findBtn.addEventListener("click", getGeoLocation);
+findBtn.addEventListener("click", getWeather);
