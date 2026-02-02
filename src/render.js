@@ -10,15 +10,24 @@ async function renderInterface() {
   const input = document.querySelector(".city-input");
   const data = await getWeather();
   const cel = data.main.temp - 273.15;
-  const h1 = document.createElement("h1");
-  const h2 = document.createElement("h2");
-  const h3 = document.createElement("h3");
+  const weatherType = document.createElement("h1");
+  const weatherDesc = document.createElement("h2");
+  const temp = document.createElement("h1");
+  const locationName = document.createElement("h2");
 
-  h1.textContent = `${cel.toFixed(2)}°C`;
-  h2.textContent = `${input.value}, ${data.sys.country}`;
+  console.log(data.weather[0].main);
+  console.log(data.weather[0].description);
 
-  weatherContainer.appendChild(h1);
-  weatherContainer.appendChild(h2);
+  weatherType.textContent = data.weather[0].main;
+  weatherDesc.textContent = data.weather[0].description;
+
+  temp.textContent = `${cel.toFixed(2)}°C`;
+  locationName.textContent = `${input.value}, ${data.sys.country}`;
+
+  weatherContainer.appendChild(weatherType);
+  weatherContainer.appendChild(weatherDesc);
+  weatherContainer.appendChild(temp);
+  weatherContainer.appendChild(locationName);
 
   input.value = "";
 }
