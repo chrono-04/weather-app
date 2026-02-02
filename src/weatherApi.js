@@ -1,4 +1,5 @@
 import { getGeoLocation } from "./geocodingApi.js";
+import { getWeatherForecast } from "./weatherForecast.js";
 
 async function getWeather() {
   const location = await getGeoLocation();
@@ -18,12 +19,13 @@ async function getWeather() {
     console.log(`Country: ${data.sys.country}`);
     console.log(`City: ${countryName}`);
     console.log(`Temp: ${celsius.toFixed(2)}°C`);
+
+    await getWeatherForecast(location.lat, location.lon);
+
     return data;
   } catch (error) {
     console.error(`Something went wrong ${error}`);
   }
-
-  const input = document.querySelector(".city-input");
 }
 
 export { getWeather };

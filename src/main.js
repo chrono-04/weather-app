@@ -1,4 +1,5 @@
 import { renderInterface } from "./render.js";
+import { getWeatherForecast } from "./weatherForecast.js";
 
 const findBtn = document.querySelector(".find-btn");
 const weatherContainer = document.querySelector(".weather-container");
