@@ -29,6 +29,28 @@ async function renderInterface() {
   weatherContainer.appendChild(temp);
   weatherContainer.appendChild(locationName);
 
+  const weatherStatus = data.weather[0].main;
+  console.log(weatherStatus);
+
+  const weatherImageContainer = document.querySelector(
+    ".weather-image-container",
+  );
+
+  switch (weatherStatus) {
+    case weatherStatus.includes("Cloud"):
+      const img = document.createElement("img");
+      img.src = "../images/cloudy.svg";
+      img.alt = "cloudy-img";
+      weatherImageContainer.appendChild(img);
+      break;
+    case weatherStatus.includes("Clear"):
+      const clearImg = document.createElement("img");
+      img.src = "../images/day_clear.svg";
+      img.alt = "clear-img";
+      weatherImageContainer.appendChild(clearImg);
+      break;
+  }
+
   input.value = "";
 }
 
